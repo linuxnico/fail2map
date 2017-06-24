@@ -8,7 +8,8 @@ import urllib2
 import random
 
 JSON_FILE = "places.geojson"
-GEOIP_API = "http://www.telize.com/geoip/%s"
+GEOIP_API = "http://ip-api.com/json/%s"
+#GEOIP_API = "http://www.telize.com/geoip/%s" ----------------- HS 404 error
 
 # free IP geolocation usually gives very approximate results
 # there is a big chance that we get the same place multiple times, so
@@ -27,7 +28,7 @@ def find_lat_lng(ipaddr):
     geo_value = json.loads(req.read())
 
     if len(geo_value) > 0:
-        point["geometry"]["coordinates"] = [float(geo_value['longitude']), float(geo_value['latitude'])]
+        point["geometry"]["coordinates"] = [float(geo_value['lon']), float(geo_value['lat'])]
         point["properties"]["place"] = "{0}, {1}".format(geo_value.get('city', ''), geo_value.get('country', ''))
         point["properties"]["show_on_map"] = True
 
