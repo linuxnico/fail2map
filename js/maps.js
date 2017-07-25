@@ -42,7 +42,7 @@ window.onload = function() {
     map = L.map('map').setView([23.26, 0], 3);
     
     // list of tile providers can be seen here: http://leaflet-extras.github.io/leaflet-providers/preview/
-    baseLayer = L.tileLayer.provider('Thunderforest.Landscape', {
+    baseLayer = L.tileLayer.provider('OpenStreetMap.Mapnik', { //Thunderforest.Landscape', {
         // write options and credentials here
         // id: 'MAPBOX_ID',
         // accessToken: 'MAPBOX_TOKEN'
